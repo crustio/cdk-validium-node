@@ -5,6 +5,7 @@ import (
 	"crypto/ecdsa"
 	"errors"
 	"fmt"
+	"github.com/0xPolygonHermez/zkevm-node/dataavailability/ethda"
 	"net"
 	"net/http"
 	"net/http/pprof"
@@ -321,6 +322,15 @@ func newDataAvailability(c config.Config, st *state.State, etherman *etherman.Cl
 	}
 	zkEVMClient := client.NewClient(trustedSequencerURL)
 
+	var (
+		pk *ecdsa.PrivateKey
+	)
+	if isSequenceSender {
+		_, pk, err = etherman.LoadAuthFromKeyStore(c.SequenceSender.PrivateKey.Path, c.SequenceSender.PrivateKey.Password)
+		if err != nil {
+			return nil, err
+		}
+	}
 	// Backend specific config
 	daProtocolName, err := etherman.GetDAProtocolName()
 	if err != nil {
@@ -329,16 +339,6 @@ func newDataAvailability(c config.Config, st *state.State, etherman *etherman.Cl
 	var daBackend dataavailability.DABackender
 	switch daProtocolName {
 	case string(dataavailability.DataAvailabilityCommittee):
-		var (
-			pk  *ecdsa.PrivateKey
-			err error
-		)
-		if isSequenceSender {
-			_, pk, err = etherman.LoadAuthFromKeyStore(c.SequenceSender.PrivateKey.Path, c.SequenceSender.PrivateKey.Password)
-			if err != nil {
-				return nil, err
-			}
-		}
 		dacAddr, err := etherman.GetDAProtocolAddr()
 		if err != nil {
 			return nil, fmt.Errorf("error getting trusted sequencer URI. Error: %v", err)
@@ -350,6 +350,12 @@ func newDataAvailability(c config.Config, st *state.State, etherman *etherman.Cl
 			pk,
 			dataCommitteeClient.NewFactory(),
 		)
+		if err != nil {
+			return nil, err
+		}
+	case string(dataavailability.ETHDA):
+		rpcUrl := "https://rpc-devnet2.ethda.io"
+		daBackend, err = ethda.New(rpcUrl, pk)
 		if err != nil {
 			return nil, err
 		}
