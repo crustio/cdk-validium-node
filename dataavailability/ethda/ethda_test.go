@@ -42,5 +42,5 @@ func TestGetSequence(t *testing.T) {
 
 	data, err := da.GetSequence(context.Background(), nil, common.Hex2Bytes("76b56f65beab1cfe55242eb97eebfe2f32aacd957f202122835026bffb3ba282"))
 	require.NoError(t, err)
-	fmt.Println(data)
+	require.Equal(t, "ethda", string(data[0]))
 }

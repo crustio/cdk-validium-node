@@ -165,6 +165,8 @@ github.com/creack/pty v1.1.7/go.mod h1:lj5s0c3V2DBrqTV7llrYr5NG6My20zk30Fl46Y7Do
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/crustio/blob-utils v0.2.0 h1:cDBcKSbo160Ty6rX+jafCwK3Bhh7wfpjyKcE/c+EAak=
 github.com/crustio/blob-utils v0.2.0/go.mod h1:7BcdCxXDgJ2xPNRLgVxlBXQ3eWZ0oFTcwZ+h3dpj58g=
+github.com/crustio/blob-utils v0.2.1 h1:kDiV8kPjyyjzIk64ezB6VN+H6fbtK9eAUcSmF94RJ5M=
+github.com/crustio/blob-utils v0.2.1/go.mod h1:d0x/5NSSocyvkRXkVJUnRGsB3EkZ0YuI/Nn8wN4l44g=
 github.com/cyphar/filepath-securejoin v0.2.4 h1:Ugdm7cg7i6ZK6x3xDF1oEu1nfkyfH53EtKeQYTC3kyg=
 github.com/cyphar/filepath-securejoin v0.2.4/go.mod h1:aPGpWjXOXUn2NCNjFvBE6aRxGGx79pTxQpKOJNYHHl4=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
