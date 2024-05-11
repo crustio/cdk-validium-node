@@ -29,6 +29,7 @@ func TestPostSequence(t *testing.T) {
 }
 
 func TestGetSequence(t *testing.T) {
+	daMessage := "b1e79a75baadbd688f97213920a01980e37e4fbf464cf9ffc94e6d10be2ee69253f1acb077c8355d30f4d8046ccbe4eb5f4eb05643ef31c4fe6e531c0ca7dc8e1bdb919f0ef6ffe754f3dfdfdfc4d1789b0bf2aee713567b550d330527eab00522"
 	rpcUrl := "https://rpc-devnet2.ethda.io"
 
 	// test key
@@ -40,7 +41,7 @@ func TestGetSequence(t *testing.T) {
 	err = da.Init()
 	require.NoError(t, err)
 
-	data, err := da.GetSequence(context.Background(), nil, common.Hex2Bytes("76b56f65beab1cfe55242eb97eebfe2f32aacd957f202122835026bffb3ba282"))
+	data, err := da.GetSequence(context.Background(), nil, common.Hex2Bytes(daMessage))
 	require.NoError(t, err)
 	require.Equal(t, "ethda", string(data[0]))
 }
