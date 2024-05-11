@@ -167,6 +167,10 @@ github.com/crustio/blob-utils v0.2.0 h1:cDBcKSbo160Ty6rX+jafCwK3Bhh7wfpjyKcE/c+E
 github.com/crustio/blob-utils v0.2.0/go.mod h1:7BcdCxXDgJ2xPNRLgVxlBXQ3eWZ0oFTcwZ+h3dpj58g=
 github.com/crustio/blob-utils v0.2.1 h1:kDiV8kPjyyjzIk64ezB6VN+H6fbtK9eAUcSmF94RJ5M=
 github.com/crustio/blob-utils v0.2.1/go.mod h1:d0x/5NSSocyvkRXkVJUnRGsB3EkZ0YuI/Nn8wN4l44g=
+github.com/crustio/blob-utils v0.3.0 h1:7Uh7FmZQLZFcacfmqZhV2Z5J6P88CeLoSwtoBcLRvsE=
+github.com/crustio/blob-utils v0.3.0/go.mod h1:d0x/5NSSocyvkRXkVJUnRGsB3EkZ0YuI/Nn8wN4l44g=
+github.com/crustio/blob-utils v0.3.1 h1:T++x9rKRqB7mlQp9nZpfadQd0UvKH6zMgV1695EvkUE=
+github.com/crustio/blob-utils v0.3.1/go.mod h1:d0x/5NSSocyvkRXkVJUnRGsB3EkZ0YuI/Nn8wN4l44g=
 github.com/cyphar/filepath-securejoin v0.2.4 h1:Ugdm7cg7i6ZK6x3xDF1oEu1nfkyfH53EtKeQYTC3kyg=
 github.com/cyphar/filepath-securejoin v0.2.4/go.mod h1:aPGpWjXOXUn2NCNjFvBE6aRxGGx79pTxQpKOJNYHHl4=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
