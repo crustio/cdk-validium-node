@@ -4,6 +4,7 @@ import (
 	"context"
 	"crypto/ecdsa"
 	"fmt"
+	"github.com/0xPolygonHermez/zkevm-node/log"
 	blobutils "github.com/crustio/blob-utils"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
@@ -26,10 +27,6 @@ func New(
 		return nil, fmt.Errorf("empty ethda rpc url")
 	}
 
-	if privKey == nil {
-		return nil, fmt.Errorf("empty private key")
-	}
-
 	return &EthdaBackend{
 		privKey:     privKey,
 		ethdaRPCURL: ethdaRPCURL,
@@ -37,6 +34,10 @@ func New(
 }
 
 func (d *EthdaBackend) Init() error {
+	if d.privKey == nil {
+		return nil
+	}
+
 	ethdaClient, err := blobutils.New(d.ethdaRPCURL, d.privKey)
 	if err != nil {
 		return fmt.Errorf("create ethda client: %w", err)
@@ -55,6 +56,7 @@ func (d *EthdaBackend) PostSequence(ctx context.Context, batchesData [][]byte) (
 			return nil, fmt.Errorf("post batch to ethda: %w", err)
 		}
 		hashes = append(hashes, hash.Bytes()...)
+		log.Infof("Post da to ethda: %s", hash.Hex())
 	}
 
 	currentHash := common.Hash{}.Bytes()
