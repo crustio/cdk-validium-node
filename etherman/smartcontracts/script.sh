@@ -28,3 +28,4 @@ gen mockverifier
 gen polygondatacommittee
 genNoBin dataavailabilityprotocol
 gen proxy
+gen ethda
