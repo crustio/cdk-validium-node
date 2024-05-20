@@ -112,23 +112,23 @@ deployments
 
 Parameters to change
 - l1Config.polygonZkEVMAddress ==> rollupAddress @ `create_rollup_output.json`
-- l1Config.polygonRollupManagerAddress ==> polygonRollupManager @ `deploy_output.json` 
+- l1Config.polygonRollupManagerAddress ==> polygonRollupManagerAddress @ `deploy_output.json` 
 - l1Config.polTokenAddress ==> polTokenAddress @ `deploy_output.json` 
 - l1Config.polygonZkEVMGlobalExitRootAddress ==> polygonZkEVMGlobalExitRootAddress @ `deploy_output.json` 
-- rollupCreationBlockNumber ==> createRollupBlock @ `create_rollup_output.json `
-- rollupManagerCreationBlockNumber ==> deploymentBlockNumber @ `deploy_output.json `
+- rollupCreationBlockNumber ==> createRollupBlockNumber @ `create_rollup_output.json `
+- rollupManagerCreationBlockNumber ==> deploymentRollupManagerBlockNumber @ `deploy_output.json `
 - root ==> root @ `genesis.json `
 - genesis ==> genesis @ `genesis.json`
 
 10. Build config file for the cdk node:
 * First, replace `test/sequencer.keystore` and `test/aggregator.keystore` with your \<sequencer-account\> and \<aggregator-account\>
-* Edit `test/config/test.node.config.toml` configuration of the `SequenceSender`, `Aggregator` and `EthTxManager` parts in the file:
+* Edit `test/config/test.node.config.toml` configuration of the `SequenceSender`, `Aggregator`, `EthTxManager` and `Etherman` parts in the file:
 
 ```bash
 [SequenceSender]
 …
 L2Coinbase = "<sequencer-account-address>", // address of <sequencer-account>
-PrivateKey = {Path = "/pk/sequencer.keystore", Password = "<sequencer-account-password>"} // address of <sequencer-account>
+PrivateKey = {Path = "/pk/sequencer.keystore", Password = "<sequencer-account-password>"} // password of <sequencer-account>
 	[SequenceSender.StreamClient]
 		Server = "zkevm-sequencer:6900" 
 …
@@ -143,6 +143,11 @@ PrivateKeys = [
 	{Path = "/pk/sequencer.keystore", Password = "<sequencer-account-password>"}, //  password of <sequencer-account>
 	{Path = "/pk/aggregator.keystore", Password = "<aggregator-account-password>"} // password of <aggregator-account>
 ]
+
+[Etherman]
+URL = "<L1-RPC>" // L1 rpc: sepolia rpc
+…
+
 ```
 
 11.run cdk node:
