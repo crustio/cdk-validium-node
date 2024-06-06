@@ -108,6 +108,7 @@ deployments
 
 9. Build the genesis file for the cdk node:
 * First, clone the [https://github.com/crustio/cdk-validium-node](https://github.com/crustio/cdk-validium-node) repo and checkout `ethda`.
+* Build zkevm-node images by `cd cdk-validium-node && make build-docker`
 * Edit the `test/config/test.genesis.config.json` file taking values in the generated output files created previously in the contract repo’s deployments/sepolia_1715752769 folder:
 
 Parameters to change
