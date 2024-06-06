@@ -111,6 +111,7 @@ deployments
 * Edit the `test/config/test.genesis.config.json` file taking values in the generated output files created previously in the contract repo’s deployments/sepolia_1715752769 folder:
 
 Parameters to change
+- l1Config.chainId ===> `11155111`
 - l1Config.polygonZkEVMAddress ==> rollupAddress @ `create_rollup_output.json`
 - l1Config.polygonRollupManagerAddress ==> polygonRollupManagerAddress @ `deploy_output.json` 
 - l1Config.polTokenAddress ==> polTokenAddress @ `deploy_output.json` 
