@@ -360,8 +360,8 @@ func newDataAvailability(c config.Config, st *state.State, etherman *etherman.Cl
 		if err != nil {
 			return nil, err
 		}
-	case string(dataavailability.ETHDA):
-		rpcUrl := "https://rpc-devnet2.ethda.io"
+	case string(dataavailability.EthDA):
+		rpcUrl := "https://rpc-testnet.ethda.io"
 		daBackend, err = ethda.New(rpcUrl, pk)
 		if err != nil {
 			return nil, err
